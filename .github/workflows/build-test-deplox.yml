@@ -1,22 +1,22 @@
-name: Build
-on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+name: first
+
+on: push
+
 jobs:
-  sonarcloud:
-    name: SonarCloud
+  job1:
+    name: First job
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Sonar Cloud"
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Step one
+        uses: actions/checkout@v2
+      - name: Step two
+        run: env | sort
+        
+  job2:
+    name: Second job
+    runs-on: windows-latest
+    steps:
+      - name: Step one
+        uses: actions/checkout@v2
+      - name: Step two
+        run: "GetChildItem Env: | Sort-Object Name"
