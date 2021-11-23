@@ -25,11 +25,7 @@ jobs:
     needs: [job1, job2, job3]
     steps:
       - run: date
-      - name: ESLint Action eslintrc
+      - name: Typescript compiler
         # You may pin to the exact commit or the version.
-        # uses: mrdivyansh/eslint-action@17eb59b7430afff999b822cb161ef44e9bd7a1cd
-        uses: mrdivyansh/eslint-action@v1.0.7
-        with:
-          # GitHub repository token for publishing inline lint annotations. Should be secrets.GITHUB_TOKEN.
-          repo-token: secrets.GITHUB_TOKEN
-          # Path to eslintrc
+        # uses: iCrawl/action-tsc@c3f25c126c7805dbbbcbf6f1db0c3be6f5dac069
+        uses: iCrawl/action-tsc@v1
